@@ -73,6 +73,24 @@ function residentApi(app) {
       next(error);
     }
   });
+  // Update
+  router.patch('/:residentId', async function (req, res, next) {
+    const { residentId } = req.params;
+    const { body: resident } = req;
+
+    try {
+      const patchResident = await residentService.patchResident({
+        residentId,
+        resident,
+      });
+      res.status(200).json({
+        message: 'resident updated',
+        data: patchResident,
+      });
+    } catch (error) {
+      next(error);
+    }
+  });
 
   // Delete
   router.delete('/:residentId', async function (req, res, next) {

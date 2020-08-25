@@ -20,6 +20,10 @@ class ResidentsService {
     const updatedResidentId = await Promise.resolve(residentsMock[0].id);
     return updatedResidentId;
   }
+  async patchResident() {
+    const patchResidentId = await Promise.resolve(residentsMock[0].id);
+    return patchResidentId;
+  }
 
   async deleteResident() {
     const deletedResident = await Promise.resolve(residentsMock[0].id);
